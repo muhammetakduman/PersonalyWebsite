@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-scroll";
 import "../css/Navbar.css";
-import mylogo from "../assets/mylogo.jpg"
+import mylogo from "../assets/mylogo.jpg";
+
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -19,24 +19,24 @@ function Navbar() {
             </div>
             <ul className={`nav-menu ${menuOpen ? "active" : ""}`}>
                 <li>
-                    <Link to="home" smooth={true} duration={500} onClick={toggleMenu}>
+                    <a href="#home" onClick={toggleMenu}>
                         Home
-                    </Link>
+                    </a>
                 </li>
                 <li>
-                    <Link to="work" smooth={true} duration={500} onClick={toggleMenu}>
+                    <a href="#work" onClick={toggleMenu}>
                         Work
-                    </Link>
+                    </a>
                 </li>
                 <li>
-                    <Link to="skills" smooth={true} duration={500} onClick={toggleMenu}>
+                    <a href="#skills" onClick={toggleMenu}>
                         Skills
-                    </Link>
+                    </a>
                 </li>
                 <li>
-                    <Link to="contact" smooth={true} duration={500} onClick={toggleMenu}>
+                    <a href="#contact" onClick={toggleMenu}>
                         <button className="contact-btn">Contact</button>
-                    </Link>
+                    </a>
                 </li>
             </ul>
         </div>
