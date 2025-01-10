@@ -31,7 +31,7 @@ function Home() {
                         }}
                     />
                 </h1>
-                <p>
+                <p className="textId">
                     <br />
                     I am a passionate developer with hands-on experience in various web technologies, including HTML, CSS, Tailwind, Material-UI, Bootstrap, JavaScript, React, Next.js, and Redux. Through numerous projects, I have honed my skills and continually strive to push my boundaries in frontend development. On the backend, I have worked extensively with Python frameworks such as Django and Flask, building robust and efficient applications. Additionally, I am exploring Java and expanding my expertise in Spring Boot technology.
                     <br />
