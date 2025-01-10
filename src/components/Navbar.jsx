@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-scroll";
 import "../css/Navbar.css";
 import mylogo from "../assets/mylogo.jpg";
 
@@ -19,24 +20,24 @@ function Navbar() {
             </div>
             <ul className={`nav-menu ${menuOpen ? "active" : ""}`}>
                 <li>
-                    <a href="#home" onClick={toggleMenu}>
+                    <Link to="home" smooth={true} duration={500} onClick={toggleMenu}>
                         Home
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="#work" onClick={toggleMenu}>
+                    <Link to="work" smooth={true} duration={500} onClick={toggleMenu}>
                         Work
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="#skills" onClick={toggleMenu}>
+                    <Link to="skills" smooth={true} duration={500} onClick={toggleMenu}>
                         Skills
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="#contact" onClick={toggleMenu}>
+                    <Link to="contact" smooth={true} duration={500} onClick={toggleMenu}>
                         <button className="contact-btn">Contact</button>
-                    </a>
+                    </Link>
                 </li>
             </ul>
         </div>

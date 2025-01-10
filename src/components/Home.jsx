@@ -1,4 +1,5 @@
 import React from "react";
+import { TypeAnimation } from "react-type-animation";
 import "../css/Home.css";
 import myPhoto from "../assets/myfoto.jpg";
 
@@ -11,7 +12,24 @@ function Home() {
             </div>
             <div className="hero-text">
                 <h1>
-                    I am a Full-Stack Developer
+                    <TypeAnimation
+                        sequence={[
+                            "I am a Full-Stack Developer",
+                            2000,
+                            "I love building innovative projects!",
+                            2000,
+                            "I strive for excellence in coding!",
+                            2000,
+                        ]}
+                        wrapper="span"
+                        cursor={true}
+                        repeat={Infinity}
+                        style={{
+                            fontSize: "2rem",
+                            fontWeight: "bold",
+                            display: "inline-block",
+                        }}
+                    />
                 </h1>
                 <p className="textId">
                     <br />
