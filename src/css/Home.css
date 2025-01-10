@@ -1,0 +1,128 @@
+/* Varsayılan boşlukları sıfırla */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HTML ve BODY için yatay taşmayı engelle */
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* Elemanları yatay merkezle */
+    align-items: center;
+    /* Dikey merkezleme */
+    padding: 0 100px;
+    /* Yanlardan boşluk */
+    gap: 50px;
+    /* Elemanlar arası boşluk */
+    background-color: #1e1e2f;
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Görsel alanı */
+.hero-image {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+.my-photo {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 5px solid #f0b429;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image-placeholder {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 270px;
+    height: 270px;
+    background-color: #dcdcdc;
+    z-index: -1;
+    border: 5px solid #f0b429;
+    border-radius: 10px;
+}
+
+/* Metin alanı */
+.hero-text {
+    max-width: 600px;
+    text-align: left;
+}
+
+.hero-text h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.hero-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #d1d1d1;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    .hero-image {
+        margin-top: 100px;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        /* Elemanları üst üste getir */
+        justify-content: flex-start;
+        /* Yukarıdan hizala */
+        align-items: center;
+        /* Ortada tut */
+        padding: 20px;
+        /* Mobilde daha az padding */
+        gap: 30px;
+        /* Elemanlar arası boşluk */
+    }
+
+    .hero-image {
+        margin-bottom: 20px;
+        /* Görselle metin arasında boşluk bırak */
+    }
+
+    .hero-text {
+        text-align: center;
+        /* Mobilde yazıları ortaya hizala */
+        padding: 0 20px;
+        /* Ekranın kenarlarına taşmayı önle */
+    }
+
+    .my-photo {
+        width: 200px;
+        height: 200px;
+    }
+
+    .image-placeholder {
+        width: 220px;
+        height: 220px;
+    }
+
+    .textId {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #ffffff;
+    }
+}
