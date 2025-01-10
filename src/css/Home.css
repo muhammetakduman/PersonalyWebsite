@@ -28,6 +28,8 @@ body {
     color: #fff;
     width: 100%;
     height: 100vh;
+    animation: fadeIn 2s ease-in-out;
+    /* Sayfa yüklendiğinde fade-in animasyonu */
 }
 
 /* Görsel alanı */
@@ -64,6 +66,8 @@ body {
 .hero-text {
     max-width: 600px;
     text-align: left;
+    animation: slideUp 2s ease-in-out;
+    /* Fade ve yukarıdan giriş animasyonu */
 }
 
 .hero-text h1 {
@@ -71,12 +75,47 @@ body {
     font-weight: bold;
     margin-bottom: 20px;
     color: #ffffff;
+    animation: textSlide 3s infinite alternate ease-in-out;
+    /* Yazıya kayan efekt */
 }
 
 .hero-text p {
     font-size: 16px;
     line-height: 1.8;
     color: #d1d1d1;
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes textSlide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(20px);
+    }
 }
 
 /* Responsive Tasarım */
