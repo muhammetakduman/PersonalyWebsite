@@ -30,7 +30,7 @@ function Navbar() {
                     </Link>
                 </li>
                 <li>
-                    <Link to="skills" smooth={true} duration={500} onClick={toggleMenu}>
+                    <Link to="work" smooth={true} duration={500} onClick={toggleMenu}>
                         Skills
                     </Link>
                 </li>

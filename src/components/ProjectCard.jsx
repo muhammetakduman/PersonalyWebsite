@@ -32,17 +32,19 @@ function ProjectCard({ project }) {
             />
             <CardContent
                 sx={{
-                    backgroundColor: '#1e1e2f', color: 'white',
-                    flexGrow: 1 // Kart içeriğinin eşitlenmesini sağlar
+                    backgroundColor: '#1e1e2f',
+                    color: 'white',
+                    flexGrow: 1, // Kart içeriğinin eşitlenmesini sağlar
+                    fontFamily: 'Times New Roman, serif', // Times New Roman yazı tipi
                 }}
             >
-                <Typography variant="h7" color="white"> {/* Yazı rengini ayarlayın */}
+                <Typography variant="h7" sx={{ fontFamily: 'Times New Roman, serif' }}> {/* Yazı rengini ayarlayın */}
                     {project.name}
                 </Typography>
-                <Typography variant="body2" color="white" mt={2}>
+                <Typography variant="body2" sx={{ fontFamily: 'Times New Roman, serif', marginTop: 2 }}>
                     {project.additionalInfo}
                 </Typography>
-                <Typography variant="body2" color="white" mt={1}>
+                <Typography variant="body2" sx={{ fontFamily: 'Times New Roman, serif', marginTop: 1 }}>
                     <b>Kullanılan Teknolojiler:</b> {project.techologies}
                 </Typography>
             </CardContent>
@@ -56,10 +58,11 @@ function ProjectCard({ project }) {
                         marginTop: 0,
                         backgroundColor: '#1e1e2f',
                         color: 'white',
-                        '&:hover': { backgroundColor: '#333', color: 'white' }
+                        '&:hover': { backgroundColor: '#333', color: 'white' },
+                        fontFamily: 'Times New Roman, serif', // Buton yazı tipi
                     }}
                 >
-                    Projeyi Gör
+                    SEE Project
                 </Button>
             </CardActions>
         </Card>

@@ -4,7 +4,6 @@ import './App.css'
 import Navbar from '../src/components/Navbar'
 import Home from '../src/components/Home'
 import Work from '../src/components/Work'
-import Contackme from './components/Contackme'
 import ContactForm from './components/ContactForm'
 import SocialMediaLinks from './components/SocialMediaLinks'
 function App() {
@@ -29,7 +28,6 @@ function App() {
         <div >
           <ContactForm />
         </div>
-
       </div>
     </>
   )

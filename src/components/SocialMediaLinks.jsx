@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Button } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -6,6 +6,46 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 
 const SocialMediaLinks = () => {
+    const [isVisible, setIsVisible] = useState(true);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        // Ekran genişliğine göre mobil durumu kontrol et
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768); // 768px'den küçükse mobil kabul et
+        };
+
+        handleResize(); // İlk yüklemede durumu kontrol et
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (!isMobile) {
+            // Masaüstü ise bağlantıları her zaman görünür yap
+            setIsVisible(true);
+            return;
+        }
+
+        // Mobilde scroll durumuna göre görünürlük ayarla
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsVisible(false);
+            } else {
+                setIsVisible(true);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [isMobile]);
+
     const socialLinks = [
         { name: "LinkedIn", icon: <LinkedInIcon />, url: "https://www.linkedin.com/in/muhammetakduman/" },
         { name: "GitHub", icon: <GitHubIcon />, url: "https://github.com/muhammetakduman" },
@@ -19,7 +59,7 @@ const SocialMediaLinks = () => {
                 position: "fixed",
                 left: 0,
                 top: "20%",
-                display: "flex",
+                display: isVisible ? "flex" : "none",
                 flexDirection: "column",
                 gap: 2,
                 padding: 1,
