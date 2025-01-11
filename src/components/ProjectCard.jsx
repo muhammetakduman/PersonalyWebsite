@@ -14,13 +14,13 @@ function ProjectCard({ project }) {
                 margin: 2,
                 backgroundColor: '',
                 display: 'flex',
-                flexDirection: 'column', // İçeriği dikey hizalayın
+                flexDirection: 'column',
                 justifyContent: 'space-between',
                 minHeight: 370,
                 borderRadius: '20px',
                 boxShadow: '0px 4px 10px rgba(141, 163, 91, 0.5)',
-                color: '#ffffff', // Yazı rengini ayarlayın,
-                cursor: 'pointer' // Buton hareket etmesi için
+                color: '#ffffff',
+                cursor: 'pointer'
             }}
         >
             <CardMedia
@@ -34,11 +34,11 @@ function ProjectCard({ project }) {
                 sx={{
                     backgroundColor: '#1e1e2f',
                     color: 'white',
-                    flexGrow: 1, // Kart içeriğinin eşitlenmesini sağlar
-                    fontFamily: 'Times New Roman, serif', // Times New Roman yazı tipi
+                    flexGrow: 1,
+                    fontFamily: 'Times New Roman, serif',
                 }}
             >
-                <Typography variant="h7" sx={{ fontFamily: 'Times New Roman, serif' }}> {/* Yazı rengini ayarlayın */}
+                <Typography variant="h7" sx={{ fontFamily: 'Times New Roman, serif' }}>
                     {project.name}
                 </Typography>
                 <Typography variant="body2" sx={{ fontFamily: 'Times New Roman, serif', marginTop: 2 }}>
@@ -59,7 +59,7 @@ function ProjectCard({ project }) {
                         backgroundColor: '#1e1e2f',
                         color: 'white',
                         '&:hover': { backgroundColor: '#333', color: 'white' },
-                        fontFamily: 'Times New Roman, serif', // Buton yazı tipi
+                        fontFamily: 'Times New Roman, serif',
                     }}
                 >
                     SEE Project

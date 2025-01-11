@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid"; // Material-UI Grid
+import Grid from "@mui/material/Grid";
 import ProjectCard from "./ProjectCard";
 import projects from "../data/ProjeData";
 
@@ -8,7 +8,7 @@ function ProjectList() {
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth <= 650); // Ekran genişliği 600px'den küçükse mobil duruma geç
+            setIsMobile(window.innerWidth <= 650);
         };
         handleResize();
         window.addEventListener("resize", handleResize);
@@ -21,19 +21,19 @@ function ProjectList() {
             }}>Works</h1>
             <Grid
                 container
-                spacing={4} // Kartlar arasındaki boşluk
+                spacing={4}
                 justifyContent="center"
                 sx={{
-                    maxWidth: "1200px", // Ekranın genişliğini sınırla
-                    margin: "0 auto", // Ortala
+                    maxWidth: "1200px",
+                    margin: "0 auto",
                 }}
             >
                 {projects.map((project) => (
                     <Grid
                         item
-                        xs={12} // Mobilde tam genişlik (tek sütun)
-                        sm={6} // Tabletlerde iki sütun
-                        md={4} // Masaüstünde üç sütun
+                        xs={12}
+                        sm={6}
+                        md={4}
                         key={project.id}
                     >
                         <ProjectCard project={project} />

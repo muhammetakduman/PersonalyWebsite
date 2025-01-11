@@ -5,7 +5,6 @@
     align-items: center;
     padding: 0 20px;
     height: 100px;
-    /* Navbar yüksekliği */
     background-color: #1e1e2f;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
     width: 100%;
@@ -25,11 +24,8 @@
 /* Logo Görseli */
 .navbar-logo {
     width: 100px;
-    /* Varsayılan logonun genişliği */
     height: auto;
-    /* Oranları koruyarak yüksekliği ayarlar */
     border-radius: 5%;
-    /* Yuvarlak logo (isteğe bağlı) */
 }
 
 /* Menü container */
@@ -39,7 +35,6 @@
     margin: 0;
     padding: 0;
     gap: 40px;
-    /* Menü elemanları arası boşluk */
 }
 
 /* Menü elemanları */
@@ -52,13 +47,9 @@
     font-size: 16px;
     font-weight: bold;
     height: 50px;
-    /* Link yüksekliği */
     line-height: 50px;
-    /* Metni dikey ortala */
     padding: 0 10px;
-    /* Link iç boşluğu */
     border-radius: 5px;
-    /* Hafif yuvarlak köşeler */
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
@@ -66,7 +57,6 @@
 .nav-menu a:hover {
     color: #f0b429;
     background-color: rgba(240, 180, 41, 0.2);
-    /* Hover sırasında hafif arka plan rengi */
 }
 
 /* Buton tasarımı */
@@ -81,9 +71,7 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
     border-radius: 10px;
     height: 50px;
-    /* Buton yüksekliği */
     line-height: 30px;
-    /* Metni dikey ortala */
 }
 
 .contact-btn:hover {
@@ -99,16 +87,12 @@
 @media (max-width: 768px) {
     .navbar {
         height: 70px;
-        /* Mobilde navbar yüksekliği */
         padding: 0 15px;
-        /* Kenar boşluklarını mobil için ayarladık */
     }
 
     .navbar-logo {
         width: 70px;
-        /* Mobilde logo genişliği */
         height: auto;
-        /* Oranları koruyarak yüksekliği ayarlar */
     }
 
     .nav-menu {
@@ -117,16 +101,11 @@
         background-color: #1e1e2f;
         position: absolute;
         top: 70px;
-        /* Mobilde menünün navbar altına hizalanması */
         right: 0px;
-        /* Sağdan biraz boşluk */
         width: 120px;
-        /* Menü genişliği */
         border-radius: 10px;
         padding: 10px;
-        /* Menü içeriği için daha az boşluk */
         gap: 10px;
-        /* Menü elemanları arası boşluk küçültüldü */
     }
 
     .nav-menu.active {
@@ -135,11 +114,8 @@
 
     .nav-menu a {
         height: 40px;
-        /* Mobilde link yüksekliği */
         line-height: 40px;
-        /* Link içerik ortalaması */
         font-size: 14px;
-        /* Font boyutunu küçülttük */
     }
 
     .menu-icon {

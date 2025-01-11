@@ -24,7 +24,6 @@ function App() {
         <Work />
       </div>
       <div style={{ backgroundColor: '#1e1e2f' }}>
-        {/* <Contackme /> */}
         <div >
           <ContactForm />
         </div>

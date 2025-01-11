@@ -17,19 +17,15 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    /* Elemanları yatay merkezle */
     align-items: center;
-    /* Dikey merkezleme */
     padding: 0 100px;
-    /* Yanlardan boşluk */
     gap: 50px;
-    /* Elemanlar arası boşluk */
     background-color: #1e1e2f;
     color: #fff;
     width: 100%;
     height: 100vh;
     animation: fadeIn 2s ease-in-out;
-    /* Sayfa yüklendiğinde fade-in animasyonu */
+
 }
 
 /* Görsel alanı */
@@ -68,7 +64,7 @@ body {
     max-width: 700px;
     text-align: left;
     animation: slideUp 2s ease-in-out;
-    /* Fade ve yukarıdan giriş animasyonu */
+
 }
 
 .hero-text h1 {
@@ -77,7 +73,7 @@ body {
     margin-bottom: 20px;
     color: #ffffff;
     animation: textSlide 3s infinite alternate ease-in-out;
-    /* Yazıya kayan efekt */
+
 }
 
 .hero-text p {
@@ -127,28 +123,26 @@ body {
 
     .hero-section {
         flex-direction: column;
-        /* Elemanları üst üste getir */
+
         justify-content: flex-start;
-        /* Yukarıdan hizala */
+
         align-items: center;
-        /* Ortada tut */
+
         padding: 20px;
-        /* Mobilde daha az padding */
+
         gap: 10px;
-        /* Elemanlar arası boşluk */
+
     }
 
     .hero-image {
 
         margin-bottom: 10px;
-        /* Görselle metin arasında boşluk bırak */
+
     }
 
     .hero-text {
         text-align: center;
-        /* Mobilde yazıları ortaya hizala */
         padding: 0 20px;
-        /* Ekranın kenarlarına taşmayı önle */
     }
 
     .my-photo {

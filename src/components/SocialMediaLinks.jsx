@@ -10,12 +10,11 @@ const SocialMediaLinks = () => {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        // Ekran genişliğine göre mobil durumu kontrol et
         const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768); // 768px'den küçükse mobil kabul et
+            setIsMobile(window.innerWidth <= 768);
         };
 
-        handleResize(); // İlk yüklemede durumu kontrol et
+        handleResize();
         window.addEventListener("resize", handleResize);
 
         return () => {
@@ -25,12 +24,12 @@ const SocialMediaLinks = () => {
 
     useEffect(() => {
         if (!isMobile) {
-            // Masaüstü ise bağlantıları her zaman görünür yap
+
             setIsVisible(true);
             return;
         }
 
-        // Mobilde scroll durumuna göre görünürlük ayarla
+
         const handleScroll = () => {
             if (window.scrollY > 50) {
                 setIsVisible(false);
