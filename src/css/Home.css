@@ -64,7 +64,8 @@ body {
 
 /* Metin alanı */
 .hero-text {
-    max-width: 600px;
+    margin-top: 150px;
+    max-width: 700px;
     text-align: left;
     animation: slideUp 2s ease-in-out;
     /* Fade ve yukarıdan giriş animasyonu */
@@ -80,7 +81,7 @@ body {
 }
 
 .hero-text p {
-    font-size: 16px;
+    font-size: 13px;
     line-height: 1.8;
     color: #d1d1d1;
 }
@@ -121,7 +122,7 @@ body {
 /* Responsive Tasarım */
 @media (max-width: 768px) {
     .hero-image {
-        margin-top: 100px;
+        margin-top: 5px;
     }
 
     .hero-section {
@@ -133,12 +134,13 @@ body {
         /* Ortada tut */
         padding: 20px;
         /* Mobilde daha az padding */
-        gap: 30px;
+        gap: 10px;
         /* Elemanlar arası boşluk */
     }
 
     .hero-image {
-        margin-bottom: 20px;
+
+        margin-bottom: 10px;
         /* Görselle metin arasında boşluk bırak */
     }
 
@@ -150,6 +152,7 @@ body {
     }
 
     .my-photo {
+        margin-top: 50px;
         width: 200px;
         height: 200px;
     }
