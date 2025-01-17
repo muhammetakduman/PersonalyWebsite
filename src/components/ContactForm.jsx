@@ -46,7 +46,7 @@ function ContactForm() {
                     component="form"
                     onSubmit={handleSubmit}
                     sx={{
-                        maxWidth: 500,
+                        maxWidth: 400,
                         margin: "auto",
                         p: 3,
                         backgroundColor: "#1e1e2f",
@@ -56,14 +56,23 @@ function ContactForm() {
                     }}
                 >
                     <Typography
-                        variant="h5"
+                        variant="h6"
                         sx={{
                             mb: 3,
                             textAlign: "center",
                             color: "#ffffff",
                         }}
                     >
-                        Contact Me (akdumanmuhammet34@gmail.com)
+                        Contact Me
+                        <Typography
+                            variant="body2"
+                            sx={{
+                                marginTop: 2,
+                                color: "#d1d1e9",
+                            }}
+                        >
+                            akdumanmuhammet34@gmail.com
+                        </Typography>
                     </Typography>
                     <TextField
                         label="Name"

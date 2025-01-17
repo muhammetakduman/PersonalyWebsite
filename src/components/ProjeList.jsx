@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import ProjectCard from "./ProjectCard";
 import projects from "../data/ProjeData";
+import { Grid2 } from "@mui/material";
 
 function ProjectList() {
     const [isMobile, setIsMobile] = useState(false);
@@ -19,7 +19,7 @@ function ProjectList() {
             <h1 style={{
                 textAlign: "center", color: "white", marginBottom: "20px", marginTop: isMobile ? "600px" : "20px"
             }}>Works</h1>
-            <Grid
+            <Grid2
                 container
                 spacing={4}
                 justifyContent="center"
@@ -29,7 +29,7 @@ function ProjectList() {
                 }}
             >
                 {projects.map((project) => (
-                    <Grid
+                    <Grid2
                         item
                         xs={12}
                         sm={6}
@@ -37,9 +37,9 @@ function ProjectList() {
                         key={project.id}
                     >
                         <ProjectCard project={project} />
-                    </Grid>
+                    </Grid2>
                 ))}
-            </Grid>
+            </Grid2>
         </Box>
     );
 }
