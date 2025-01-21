@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { Box, TextField, Button, Typography, Snackbar, Alert } from "@mui/material";
 
 function ContactForm() {
@@ -20,13 +21,29 @@ function ContactForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Form Data:", formData);
-        setSnackbarOpen(true);
-        setFormData({
-            name: "",
-            email: "",
-            message: "",
-        });
+
+        emailjs
+            .send(
+                "service_zejtc6y",
+                "template_mo1jfsk",
+                formData,           // Form verisi
+                "I5ClY4uP2a2ilH_uN"
+            )
+            .then(
+                (result) => {
+                    console.log("E-posta başarıyla gönderildi:", result.text);
+                    setSnackbarOpen(true);
+                    setFormData({
+                        name: "",
+                        email: "",
+                        message: "",
+                    });
+                },
+                (error) => {
+                    console.error("E-posta gönderim hatası:", error.text);
+                    alert("Mesaj gönderilemedi. Lütfen tekrar deneyin.");
+                }
+            );
     };
 
     const handleSnackbarClose = () => {
