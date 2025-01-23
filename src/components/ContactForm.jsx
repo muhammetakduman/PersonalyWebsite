@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Box, TextField, Button, Typography, Snackbar, Alert } from "@mui/material";
 
@@ -9,7 +9,9 @@ function ContactForm() {
         message: "",
     });
 
-    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [isDisabled, setIsDisabled] = useState(false);
+    const [countDown, setCountDown] = useState(0);
+    const [snackbar, setSnackbar] = useState({ open: false, message: "", severity: "info" });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -22,17 +24,24 @@ function ContactForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if (formData.message.length < 10) {
+            setSnackbar({ open: true, message: "Mesajınız en az 10 karakter uzunluğunda olmalıdır!", severity: "error" });
+            return;
+        }
+
+        setIsDisabled(true);
+        setCountDown(60);
+
         emailjs
             .send(
                 "service_zejtc6y",
                 "template_mo1jfsk",
-                formData,           // Form verisi
-                "I5ClY4uP2a2ilH_uN"
+                formData,
+                import.meta.env.VITE_EMAILJS_USER_ID
             )
             .then(
-                (result) => {
-                    console.log("E-posta başarıyla gönderildi:", result.text);
-                    setSnackbarOpen(true);
+                () => {
+                    setSnackbar({ open: true, message: "Mesajınız başarıyla gönderildi!", severity: "success" });
                     setFormData({
                         name: "",
                         email: "",
@@ -41,34 +50,47 @@ function ContactForm() {
                 },
                 (error) => {
                     console.error("E-posta gönderim hatası:", error.text);
-                    alert("Mesaj gönderilemedi. Lütfen tekrar deneyin.");
+                    setSnackbar({ open: true, message: "Mesaj gönderilemedi. Lütfen tekrar deneyin.", severity: "error" });
+                    setIsDisabled(false);
                 }
             );
     };
 
+    // Geri sayım sürecini yönetiyoruz
+    useEffect(() => {
+        if (countDown > 0) {
+            const timer = setTimeout(() => {
+                setCountDown((prev) => prev - 1);
+            }, 1000);
+            return () => clearTimeout(timer);
+        } else if (countDown === 0 && isDisabled) {
+            setIsDisabled(false);
+            setSnackbar({ open: true, message: "Buton tekrar aktif oldu. Yeni bir mesaj gönderebilirsiniz.", severity: "info" });
+        }
+    }, [countDown, isDisabled]);
+
     const handleSnackbarClose = () => {
-        setSnackbarOpen(false);
+        setSnackbar({ ...snackbar, open: false });
     };
 
     return (
-        <div id="contact">
-
+        <div id="contact" style={{ backgroundColor: '#1e1e2f' }}>
             <Box
                 sx={{
                     backgroundColor: "#1e1e2f",
                     paddingBottom: "150px",
-                }}
-            >
+                    mt: 33,
+                }}>
                 <Box
                     component="form"
                     onSubmit={handleSubmit}
                     sx={{
-                        maxWidth: 400,
+                        maxWidth: { xs: 400, sm: 600 },
                         margin: "auto",
                         p: 3,
                         backgroundColor: "#1e1e2f",
                         borderRadius: 2,
-                        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
+                        boxShadow: "0px 4px 10px rgba(177, 183, 61, 0.5)",
                         color: "#ffffff",
                     }}
                 >
@@ -175,25 +197,26 @@ function ContactForm() {
                     <Button
                         type="submit"
                         variant="contained"
+                        disabled={isDisabled}
                         sx={{
-                            backgroundColor: "#5c5cff",
-                            color: "#ffffff",
+                            backgroundColor: isDisabled ? "#cccccc" : "#5c5cff",
+                            color: isDisabled ? "#ffffff" : "#ffffff",
                             "&:hover": {
-                                backgroundColor: "#3333ff",
+                                backgroundColor: isDisabled ? "#cccccc" : "#3333ff",
                             },
                         }}
                         fullWidth
-                    >SEND
-
+                    >
+                        {isDisabled ? <h3 style={{ color: 'white', fontSize: '13px' }}>Please wait {countDown} seconds for a new mail</h3> : "SEND"}
                     </Button>
 
                     <Snackbar
-                        open={snackbarOpen}
+                        open={snackbar.open}
                         autoHideDuration={4000}
                         onClose={handleSnackbarClose}
                     >
-                        <Alert onClose={handleSnackbarClose} severity="success" sx={{ width: "100%" }}>
-                            Mesajınız başarıyla gönderildi!
+                        <Alert onClose={handleSnackbarClose} severity={snackbar.severity} sx={{ width: "100%" }}>
+                            {snackbar.message}
                         </Alert>
                     </Snackbar>
                 </Box>
