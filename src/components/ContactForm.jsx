@@ -79,7 +79,7 @@ function ContactForm() {
                 sx={{
                     backgroundColor: "#1e1e2f",
                     paddingBottom: "150px",
-                    mt: 33,
+                    mt: 28,
                 }}>
                 <Box
                     component="form"
