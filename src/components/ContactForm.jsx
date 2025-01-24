@@ -85,7 +85,7 @@ function ContactForm() {
                     component="form"
                     onSubmit={handleSubmit}
                     sx={{
-                        maxWidth: { xs: 400, sm: 600 },
+                        maxWidth: { xs: 300, sm: 600 },
                         margin: "auto",
                         p: 3,
                         backgroundColor: "#1e1e2f",

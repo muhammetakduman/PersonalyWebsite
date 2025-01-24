@@ -45,7 +45,7 @@ function ProjectCard({ project }) {
                     {project.additionalInfo}
                 </Typography>
                 <Typography variant="body2" sx={{ fontFamily: 'Times New Roman, serif', marginTop: 1 }}>
-                    <b>Kullanılan Teknolojiler:</b> {project.techologies}
+                    <b>Technologies used:</b> {project.techologies}
                 </Typography>
             </CardContent>
             <CardActions sx={{ backgroundColor: '#1e1e2f' }}>
@@ -54,6 +54,8 @@ function ProjectCard({ project }) {
                     color="info"
                     href={project.domain}
                     variant="outlined"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     sx={{
                         marginTop: 0,
                         backgroundColor: '#1e1e2f',
