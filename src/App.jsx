@@ -6,6 +6,7 @@ import Home from '../src/components/Home'
 import Work from '../src/components/Work'
 import ContactForm from './components/ContactForm'
 import SocialMediaLinks from './components/SocialMediaLinks'
+import Footer from './components/Footer'
 function App() {
 
 
@@ -27,6 +28,9 @@ function App() {
         <div >
           <ContactForm />
         </div>
+      </div>
+      <div>
+        <Footer />
       </div>
     </>
   )
