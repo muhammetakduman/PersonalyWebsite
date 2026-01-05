@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Box, TextField, Button, Typography, Snackbar, Alert } from "@mui/material";
+import { useLanguage } from "../context/LanguageContext";
 
 function ContactForm() {
+    const { t } = useLanguage();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -42,7 +44,7 @@ function ContactForm() {
             )
             .then(
                 () => {
-                    setSnackbar({ open: true, message: "Mesajınız başarıyla gönderildi!", severity: "success" });
+                    setSnackbar({ open: true, message: t.contact.success, severity: "success" });
                     setFormData({
                         name: "",
                         email: "",
@@ -51,7 +53,7 @@ function ContactForm() {
                 },
                 (error) => {
                     console.error("E-posta gönderim hatası:", error.text);
-                    setSnackbar({ open: true, message: "Mesaj gönderilemedi. Lütfen tekrar deneyin.", severity: "error" });
+                    setSnackbar({ open: true, message: t.contact.error, severity: "error" });
                     setIsDisabled(false);
                 }
             );
@@ -98,130 +100,100 @@ function ContactForm() {
                     <Typography
                         variant="h6"
                         sx={{
-                            mb: 3,
                             textAlign: "center",
+                            mb: 2,
                             color: "#ffffff",
+                            fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
                         }}
                     >
-                        Contact Me
-                        <Typography
-                            variant="body2"
-                            sx={{
-                                marginTop: 2,
-                                color: "#d1d1e9",
-                            }}
-                        >
-                            akdumanmuhammet34@gmail.com
-                        </Typography>
+                        {t.contact.title}
                     </Typography>
                     <TextField
-                        label="Name"
+                        fullWidth
+                        label={t.contact.name}
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        fullWidth
+                        margin="normal"
                         required
                         sx={{
-                            mb: 2,
-                            "& .MuiInputBase-root": {
-                                backgroundColor: "#3e3e5e",
-                                color: "#ffffff",
-                            },
-                            "& .MuiInputLabel-root": {
-                                color: "#d1d1e9",
-                            },
+                            input: { color: "#ffffff" },
+                            label: { color: "#aaaaaa" },
                             "& .MuiOutlinedInput-root": {
-                                "& fieldset": {
-                                    borderColor: "#E8B931",
-                                },
-                                "&:hover fieldset": {
-                                    borderColor: "#8585ff",
-                                },
+                                "& fieldset": { borderColor: "#aaaaaa" },
+                                "&:hover fieldset": { borderColor: "#ffffff" },
+                                "&.Mui-focused fieldset": { borderColor: "#ffffff" },
                             },
                         }}
                     />
                     <TextField
-                        label="E-mail Adress"
+                        fullWidth
+                        label={t.contact.email}
                         name="email"
+                        type="email"
                         value={formData.email}
                         onChange={handleChange}
-                        fullWidth
+                        margin="normal"
                         required
-                        type="email"
                         sx={{
-                            mb: 2,
-                            "& .MuiInputBase-root": {
-                                backgroundColor: "#3e3e5e",
-                                color: "#ffffff",
-                            },
-                            "& .MuiInputLabel-root": {
-                                color: "#d1d1e9",
-                            },
+                            input: { color: "#ffffff" },
+                            label: { color: "#aaaaaa" },
                             "& .MuiOutlinedInput-root": {
-                                "& fieldset": {
-                                    borderColor: "#E8B931",
-                                },
-                                "&:hover fieldset": {
-                                    borderColor: "#8585ff",
-                                },
+                                "& fieldset": { borderColor: "#aaaaaa" },
+                                "&:hover fieldset": { borderColor: "#ffffff" },
+                                "&.Mui-focused fieldset": { borderColor: "#ffffff" },
                             },
                         }}
                     />
                     <TextField
-                        label="Message"
+                        fullWidth
+                        label={t.contact.message}
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        fullWidth
-                        required
+                        margin="normal"
                         multiline
                         rows={4}
+                        required
                         sx={{
-                            mb: 2,
-                            "& .MuiInputBase-root": {
-                                backgroundColor: "#3e3e5e",
-                                color: "#ffffff",
-                            },
-                            "& .MuiInputLabel-root": {
-                                color: "#d1d1e9",
-                            },
+                            textarea: { color: "#ffffff" },
+                            label: { color: "#aaaaaa" },
                             "& .MuiOutlinedInput-root": {
-                                "& fieldset": {
-                                    borderColor: "#E8B931",
-                                },
-                                "&:hover fieldset": {
-                                    borderColor: "#8585ff",
-                                },
+                                "& fieldset": { borderColor: "#aaaaaa" },
+                                "&:hover fieldset": { borderColor: "#ffffff" },
+                                "&.Mui-focused fieldset": { borderColor: "#ffffff" },
                             },
                         }}
                     />
                     <Button
                         type="submit"
                         variant="contained"
+                        fullWidth
                         disabled={isDisabled}
                         sx={{
-                            backgroundColor: isDisabled ? "#cccccc" : "#5c5cff",
-                            color: isDisabled ? "#ffffff" : "#ffffff",
+                            mt: 2,
+                            backgroundColor: isDisabled ? "#555" : "#ffffff",
+                            color: "#1e1e2f",
+                            fontWeight: "bold",
                             "&:hover": {
-                                backgroundColor: isDisabled ? "#cccccc" : "#3333ff",
+                                backgroundColor: isDisabled ? "#555" : "#dddddd",
                             },
                         }}
-                        fullWidth
                     >
-                        {isDisabled ? <h3 style={{ color: 'white', fontSize: '13px' }}>Please wait {countDown} seconds for a new mail</h3> : "SEND"}
+                        {isDisabled ? `Bekleyiniz (${countDown}s)` : t.contact.send}
                     </Button>
-
-                    <Snackbar
-                        open={snackbar.open}
-                        autoHideDuration={4000}
-                        onClose={handleSnackbarClose}
-                    >
-                        <Alert onClose={handleSnackbarClose} severity={snackbar.severity} sx={{ width: "100%" }}>
-                            {snackbar.message}
-                        </Alert>
-                    </Snackbar>
                 </Box>
             </Box>
+            <Snackbar
+                open={snackbar.open}
+                autoHideDuration={6000}
+                onClose={handleSnackbarClose}
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            >
+                <Alert onClose={handleSnackbarClose} severity={snackbar.severity} sx={{ width: "100%" }}>
+                    {snackbar.message}
+                </Alert>
+            </Snackbar>
         </div>
     );
 }

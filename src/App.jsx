@@ -7,11 +7,13 @@ import Work from '../src/components/Work'
 import ContactForm from './components/ContactForm'
 import SocialMediaLinks from './components/SocialMediaLinks'
 import Footer from './components/Footer'
+import { LanguageProvider } from './context/LanguageContext'
+
 function App() {
 
 
   return (
-    <>
+    <LanguageProvider>
       <div>
         <SocialMediaLinks />
       </div>
@@ -32,7 +34,7 @@ function App() {
       <div>
         <Footer />
       </div>
-    </>
+    </LanguageProvider>
   )
 }
 

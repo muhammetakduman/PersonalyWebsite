@@ -1,24 +1,36 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { TypeAnimation } from "react-type-animation";
 import "../css/Home.css";
 import myPhoto from "../assets/myfoto.jpg";
+import { useLanguage } from "../context/LanguageContext";
+import gsap from "gsap";
 
 function Home() {
+    const { t } = useLanguage();
+    const imageRef = useRef(null);
+
+    useEffect(() => {
+        gsap.fromTo(imageRef.current,
+            { opacity: 0, scale: 0.5, rotation: -10 },
+            { opacity: 1, scale: 1, rotation: 0, duration: 1.5, ease: "elastic.out(1, 0.5)" }
+        );
+    }, []);
+
     return (
         <div id="home" className="hero-section">
             <div className="hero-image">
-                <img src={myPhoto} alt="Muhammet Akduman" className="my-photo"></img>
-                <div className="image-placeholder"></div>
+                <img ref={imageRef} src={myPhoto} alt="Muhammet Akduman" className="my-photo"></img>
             </div>
             <div className="hero-text">
                 <h1>
                     <TypeAnimation
+                        key={t.home.typeAnimation[0]} // Force re-render on language change
                         sequence={[
-                            "I am a Full-Stack Developer",
+                            t.home.typeAnimation[0],
                             2000,
-                            "I love building innovative projects!",
+                            t.home.typeAnimation[1],
                             2000,
-                            "I strive for excellence in coding!",
+                            t.home.typeAnimation[2],
                             2000,
                         ]}
                         wrapper="span"
@@ -33,13 +45,7 @@ function Home() {
                 </h1>
                 <p className="textId">
                     <br />
-                    I am a passionate developer with hands-on experience in various web technologies, including HTML, CSS, Tailwind, Material-UI, Bootstrap, JavaScript, React, Next.js, and Redux. Through numerous projects, I have honed my skills and continually strive to push my boundaries in frontend development. On the backend, I have worked extensively with Python frameworks such as Django and Flask, building robust and efficient applications. Additionally, I am exploring Java and expanding my expertise in Spring Boot technology.
-                    <br />
-                    <br />
-                    In terms of databases, I have utilized MSSQL, MySQL, and SQLite in my projects, ensuring seamless data management and integration. My journey in programming began during my studies in Geomatics Engineering at Gebze Technical University, where I was introduced to software development through Geographic Information Systems (GIS) courses. This foundation sparked my interest in coding, which has now become a significant part of my career aspirations.
-                    <br />
-                    <br />
-                    I am eager to continue learning and contributing to innovative projects that leverage my skills and drive for technological excellence.
+                    {t.home.description}
                 </p>
             </div>
         </div>

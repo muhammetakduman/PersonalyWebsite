@@ -3,9 +3,12 @@ import Box from "@mui/material/Box";
 import ProjectCard from "./ProjectCard";
 import projects from "../data/ProjeData";
 import { Grid2 } from "@mui/material";
+import { useLanguage } from "../context/LanguageContext";
 
 function ProjectList() {
     const [isMobile, setIsMobile] = useState(false);
+    const { t } = useLanguage();
+
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 650);
@@ -18,7 +21,7 @@ function ProjectList() {
         <Box sx={{ flexGrow: 1, padding: { xs: 2, sm: 4, md: 6 }, backgroundColor: "#1e1e2f" }}>
             <h1 style={{
                 textAlign: "center", color: "white", marginBottom: "20px", marginTop: isMobile ? "600px" : "20px"
-            }}>Works</h1>
+            }}>{t.work.title}</h1>
             <Grid2
                 container
                 spacing={4}
@@ -35,6 +38,7 @@ function ProjectList() {
                         sm={6}
                         md={4}
                         key={project.id}
+                        sx={{ display: 'flex' }} // Ensure grid items stretch
                     >
                         <ProjectCard project={project} />
                     </Grid2>

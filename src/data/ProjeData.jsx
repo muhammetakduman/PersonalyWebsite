@@ -5,10 +5,40 @@ import proje4hava from "../assets/havadurumu.png"
 import proje5shopping from "../assets/shoppingcarproje.png"
 import proje6stock from "../assets/stockApp.png"
 import proje7takas from "../assets/takastokenproje.png"
+import kolfgame from "../assets/kolfgame.png"
+import appneakadar from "../assets/appnekadar.png"
+import nekadarlanding from "../assets/nekadarlandingpage.png"
 
 const projects = [
     {
         id: 1,
+        name: "⭐ Kingdom Of Lagaflare Web3 Gaming",
+        image: kolfgame,
+        domain: "https://kolfgame.com/",
+        techologies: "Redux , Gsap , Flask , Postgres , Etherv6, solid",
+        description: "Web3 Tabanlı NFT oyunu.",
+        additionalInfo: ""
+    },
+    {
+        id: 2,
+        name: "⭐ Ne Kadara Satılır?",
+        image: appneakadar,
+        domain: "https://app.nekadarasatilir.tech/",
+        techologies: "Java Spring Boot, Redis, Postgres, RabbitMQ, JUnit, React, Redux MUI, Tailwind, Docker",
+        description: "Uçtan uca Full Stack geliştirdiğim bir proje. E-ticaret sitelerine ürünü koymadan simüle edip, giderleri hesaplayarak net kârı gösteren bir uygulama.",
+        additionalInfo: ""
+    },
+    {
+        id: 3,
+        name: "⭐ Ne Kadara Satılır? (Landing Page)",
+        image: nekadarlanding,
+        domain: "https://www.nekadarasatilir.tech/",
+        techologies: "GSAP, TailwindCSS, React",
+        description: "\"Ne Kadara Satılır?\" uygulamasının tanıtım sayfası (Landing Page).",
+        additionalInfo: ""
+    },
+    {
+        id: 4,
         name: "Modern E-commerce",
         image: proje1ticaret,
         domain: "https://e-commerce-dae4ex0jf-muhammetakdumans-projects.vercel.app/",
@@ -18,7 +48,7 @@ const projects = [
 
     },
     {
-        id: 2,
+        id: 5,
         name: "Anka Token Website",
         image: proje2anka,
         domain: "https://anka-token-ldxwdxh4f-muhammetakdumans-projects.vercel.app/",
@@ -27,7 +57,7 @@ const projects = [
         additionalInfo: ""
     },
     {
-        id: 3,
+        id: 6,
         name: "BLOG",
         image: proje3django,
         domain: "https://github.com/muhammetakduman/django-apiServices-",
@@ -36,7 +66,7 @@ const projects = [
         additionalInfo: "Commenting, article sharing, user creation, authorization, crud operations and api writing."
     },
     {
-        id: 4,
+        id: 7,
         name: "OpenWeather",
         image: proje4hava,
         domain: "https://openweather-gdg997p6b-muhammetakdumans-projects.vercel.app/",
@@ -45,7 +75,7 @@ const projects = [
         additionalInfo: "Learned crud operations logic using OpenweatherAPI."
     },
     {
-        id: 5,
+        id: 8,
         name: "Shopping Card",
         image: proje5shopping,
         domain: "https://shoppingcart-61zzjy8z6-muhammetakdumans-projects.vercel.app/",
@@ -54,7 +84,7 @@ const projects = [
         additionalInfo: "Modern e-commerce site using React hooks"
     },
     {
-        id: 6,
+        id: 9,
         name: "Stock APP",
         image: proje6stock,
         domain: "https://github.com/KourosBey/StockTrackerAPI",
@@ -63,7 +93,7 @@ const projects = [
         additionalInfo: "Business and stock tracking system that I developed with my friend."
     },
     {
-        id: 7,
+        id: 10,
         name: "Takas Token",
         image: proje7takas,
         domain: "https://takastoken.io/",

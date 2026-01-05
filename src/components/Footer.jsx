@@ -1,6 +1,9 @@
 import React from 'react'
 import { Box, Container, Typography } from "@mui/material"
+import { useLanguage } from "../context/LanguageContext";
+
 function Footer() {
+    const { t } = useLanguage();
     return (
         <div>
             <Box
@@ -22,7 +25,7 @@ function Footer() {
                     mb: 2,
                 }}>
                     <Typography variant="body2" color="white" >
-                        &copy; {new Date().getFullYear()} My Website. All rights reserved.
+                        &copy; {new Date().getFullYear()} My Website. {t.footer.rights}
                     </Typography>
                     <Typography variant="body2" color="white" >
                         Designed by Hilal Meriç
